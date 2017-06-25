@@ -1,0 +1,28 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "success",
+    "data": [{
+        "appl_cde": "032016050511000012345",
+        "sign_end_dt": "2017-05-30",
+        "loan_typ": "01",
+        "loan_prom": "01",
+        "avail_amt": 10000,
+        "loan_avail": 20000,
+        "loan_name": "XX贷",
+        "exist_pay_flag": "Y",
+        "loan_sts": "01",
+        "sign_model": "01"
+    }, {
+        "appl_cde": "032016050511000012345",
+        "sign_end_dt": "2017-05-29",
+        "loan_typ": "01",
+        "loan_prom": "01",
+        "avail_amt": 10000,
+        "loan_avail": 20000,
+        "loan_name": "YY贷",
+        "exist_pay_flag": "N",
+        "loan_sts": "02",
+        "sign_model": "01"
+    }],
+    "count": 2
+}

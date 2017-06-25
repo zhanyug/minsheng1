@@ -1,0 +1,267 @@
+/* 
+ * @Author: Wei
+ * @Date:   2016-05-12 01:06:51
+ * @Last Modified by:   Wei
+ * @Last Modified time: 2017-01-04 11:21:58
+ */
+
+'use strict';
+alert('bb1');
+
+var common = require('util/common'),
+    Vue = require('vue'),
+    wx = require('static/libs/wechat/jweixin');
+
+var recordIntervalTimeout = 15,
+    recordInterval = undefined,
+    isRecordStarted = false,
+    isRecordPlayStarted = false,
+    fw = '';
+
+// 3 智能接口
+var voice = {
+    localId: '',
+    voice: ''
+};
+alert('bb');
+module.exports = Vue.extend({
+    template: __inline('set-multi-media.tpl'),
+    data: function() {
+        return {
+            title: '图像声纹采集',
+            voiceRecordBtnText: '开始录音',
+            saveBtnText: '提交',
+            playRecordBtnText: '<i class="fa fa-play-circle-o"></i> 播放录音',
+            saveBtnClass: {
+                'z-dis': false
+            },
+            showProgress: false,
+            voice: '',
+            localId: '',
+            images: {
+                localId: [],
+                serverId: []
+            },
+            view: {
+                isLoading: true
+            }
+        }
+    },
+    route: {
+        data: function (transition) {
+            console.log('route view activated!');
+            transition.next();
+            console.warn('Change view to: ' + transition.to.path);
+
+            var vm = this;
+            // fetch Wechat JS API signature
+            common.wx.fetchTokenSignature(wx, transition.to.path, common.wx.jsApi.image.concat(common.wx.jsApi.voice), this, function() {alert('98')
+//              wx.ready(function () {alert('99')
+                    wx.hideOptionMenu();
+                    // jssdk loaded, show the whole view.
+                    vm.view.isLoading = false;
+                    Vue.nextTick(function() {
+                        vm.init();
+                    });
+//              });
+            });
+        }
+    },
+    methods: {
+        chooseImage: function(event) {
+            var vm = this;
+            var index = event.target.dataset.index;
+            wx.ready(function () {
+                wx.chooseImage({
+                    count: 1, // 默认9
+                    sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                    sourceType: ['camera'], // 可以指定来源是相册还是相机，默认二者都有
+                    success: function (res) {
+                        vm.images.localId[index] = res.localIds[0];
+                        event.target.src = res.localIds[0];
+                        if (!mui.os.ios) {
+                            // 支持低版本Android系统，延迟100ms执行上传
+                            setTimeout(function() {
+                                vm.uploadImageToWechat(index);
+                            }, 100);
+                        } else {
+                            vm.uploadImageToWechat(index);
+                        }
+                    },
+                    fail: function (res) {
+                        
+                    }
+                });
+            });
+        },
+        uploadImageToWechat: function(index) {
+            var vm = this;
+            wx.uploadImage({
+                localId: vm.images.localId[index],
+                success: function (res) {
+                    vm.images.serverId[index] = res.serverId;
+                },
+                fail: function (res) {
+                }
+            });
+        },
+        saveMultiMedia: function(event) {
+            var vm = this;
+
+            if (vm.saveBtnClass['z-dis'] == true) {
+                return;
+            }
+            if (vm.images.serverId.length == 0 || vm.images.serverId[0] == undefined) {
+                common.msg('请上传本人实时头像');
+                return;
+            }
+            if (vm.images.serverId.length == 0 || vm.images.serverId[1] == undefined) {
+                common.msg('请上传本人手持身份证图片');
+                return;
+            }
+            if (vm.voice == '') {
+                common.msg('请上传录音或等待录音结束');
+                return;
+            }
+            vm.saveBtnText = '<span class="mui-icon mui-icon-spinner spin"></span> 处理中';
+            vm.saveBtnClass['z-dis'] = true;
+            common.Ajax({
+                url: 'api/wx/auth/media/uploadVoiceImage',
+                data: {
+                    media_head_image: vm.images.serverId[0],
+                    media_handheld_image: vm.images.serverId[1],
+                    voice: vm.voice
+                },
+                fw: fw,
+                success: function(json) {
+                    vm.saveBtnText = '提交';
+                    vm.saveBtnClass['z-dis'] = false;
+                    
+                    common.msg('保存成功', function() {
+                        if (fw == '') {
+                            window.router.go({
+                                path: '/user/index'
+                            });
+                        } else {
+                            // 如有fw参数，此时url参数无值，则为流程最终节点，完成后直接跳转至fw页面
+                            window.router.go({
+                                path: fw
+                            });
+                        }
+                    });
+                },
+                failure: function(json) {
+                    vm.saveBtnText = '提交';
+                    vm.saveBtnClass['z-dis'] = false;
+                }
+            })
+        },
+        startRecord: function() {
+            var vm = this;
+            vm.voice = '';
+            wx.ready(function () {
+                if (isRecordStarted) {
+                    vm.stopRecord();
+                } else {
+                    wx.startRecord({
+                        cancel: function() {
+                            common.msg('请授权录音');
+                            isRecordStarted = false;
+                            if (recordInterval) {
+                                window.clearInterval(recordInterval);
+                            }
+                            recordIntervalTimeout = 15;
+                        }
+                    });
+                    isRecordStarted = true;
+                    recordInterval = setInterval(function() {
+                        if (recordIntervalTimeout == 0) {
+                            vm.stopRecord();
+                            window.clearInterval(recordInterval);
+                        } else {
+                            vm.voiceRecordBtnText = '停止录音 ' + recordIntervalTimeout--;
+                        }
+                    }, 1000);
+                }
+            });
+        },
+        stopRecord: function() {
+            var vm = this;
+            wx.stopRecord({
+                success: function(res) {
+                    vm.localId = res.localId;
+                    isRecordStarted = false;
+                    // clear interval
+                    window.clearInterval(recordInterval);
+                    recordIntervalTimeout = 15;
+                    vm.voiceRecordBtnText = '上传中……';
+                    common.msg('已停止录音，开始上传');
+                    vm.uploadRecord();
+                },
+                fail: function(res) {
+                    isRecordStarted = false;
+                    // clear interval
+                    window.clearInterval(recordInterval);
+                    recordIntervalTimeout = 15;
+                }
+            });
+        },
+        playRecord: function() {
+            var vm = this;
+            if (vm.localId == '') {
+                common.msg('请先录制一段声音');
+                return;
+            }
+            wx.ready(function () {
+                if (isRecordPlayStarted) {
+                    wx.stopVoice({
+                        localId: vm.localId
+                    });
+                    isRecordPlayStarted = false;
+                    vm.playRecordBtnText = '<i class="fa fa-play-circle-o"></i> 播放录音';
+                } else {
+                    // 监听录音播放停止
+                    wx.onVoicePlayEnd({
+                        complete: function(res) {
+                            isRecordPlayStarted = false;
+                            vm.playRecordBtnText = '<i class="fa fa-play-circle-o"></i> 播放录音';
+                        }
+                    });
+                    vm.playRecordBtnText = '<i class="fa fa-stop-circle-o"></i> 停止播放录音';
+                    wx.playVoice({
+                        localId: vm.localId
+                    });
+                    isRecordPlayStarted = true;
+                }
+            });
+        },
+        uploadRecord: function() {
+            var vm = this;
+            wx.uploadVoice({
+                localId: vm.localId,
+                success: function(res) {
+                    common.msg('上传语音成功');
+                    vm.voiceRecordBtnText = '重新录制';
+                    vm.voice = res.serverId;
+                }
+            });
+        },
+        init: function() {alert('555')
+            // ui init
+            var RegisterFour_w = $(".RegisterFour_photo").width();
+            var RegisterFour_h = RegisterFour_w*2/3;
+            $(".RegisterFour_photo").css("height",RegisterFour_h);
+            $(".RegisterFour_photo input").css("height",RegisterFour_h);
+            $(".RegisterFour_photo img").css("height",RegisterFour_h-2);
+            $(".RegisterFour_photo img").css("width",RegisterFour_w);
+        }
+    },
+    ready: function() {alert('56')
+        fw = this.$route.query.fw || '';
+        var vm = this;
+
+        if (!vm.$route.query.auth == '1') {
+            vm.showProgress = true;
+        }
+    }
+});

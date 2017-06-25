@@ -1,0 +1,39 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "操作成功",
+    "url": null,
+    "data": [{
+        "appl_type": "FKSQ",
+        "typ_grp": "02",
+        "out_sts": "00",
+        "operate_time": "2016-10-10 03:13:44",
+        "app_conclusion": "10",
+        "out_sts_desc": "申请提交",
+        "app_out_advice": "",
+        "wfi_status": "99",
+        "sign_model": "03",
+        "showSign": "N"
+    }, {
+        "appl_type": "FKSQ",
+        "typ_grp": "02",
+        "out_sts": "20",
+        "operate_time": "2016-10-10 03:14:01",
+        "app_conclusion": "10",
+        "out_sts_desc": "已审批",
+        "app_out_advice": "",
+        "wfi_status": "99",
+        "sign_model": "03",
+        "showSign": "N"
+    }, {
+        "appl_type": "FKSQ",
+        "typ_grp": null,
+        "out_sts": "99",
+        "operate_time": "2016-10-10 03:14:01",
+        "app_conclusion": null,
+        "out_sts_desc": "审批结束",
+        "app_out_advice": null,
+        "wfi_status": null,
+        "sign_model": null,
+        "showSign": "N"
+    }]
+}

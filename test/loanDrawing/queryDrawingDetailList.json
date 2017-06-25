@@ -1,0 +1,14 @@
+{
+	"returnCode": "000000",
+	"returnMsg": "success",
+	"data": [{
+		"detail_time": "2017-05-30",
+		"settl_type": "NORMAL",
+		"detail_amt": 1000.00
+	}, {
+		"detail_time": "2018-05-30",
+		"settl_type": "SETL",
+		"detail_amt": 2000.00
+	}],
+	"count": 2
+}

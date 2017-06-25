@@ -1,0 +1,154 @@
+/* 
+ * @Author: Ma
+ * @Date:   2016-05-23 15:06:51
+ * @Last Modified by:   Wei
+ * @Last Modified time: 2017-02-27 14:20:29
+ */
+
+'use strict';
+
+var validator = require('util/validator'),
+	common = require('util/common'),
+	Checking = require('util/Checking'),
+	validator = require('util/validator'),
+    wx = require('static/libs/wechat/jweixin'),
+	Vue = require('vue');
+module.exports = Vue.extend({
+	template: __inline('login.tpl'),
+	data: function() {
+		return {
+			mobile: '',
+			password: '',
+			code: '',
+			fw: null,
+			wxCode: '',
+			locationInfo: {}
+		}
+	},
+    route: {
+        data: function (transition) {
+            console.log('route view activated!');
+            transition.next();
+            console.warn('Change view to: ' + transition.to.path);
+
+            var vm = this;
+            // fetch Wechat JS API signature
+            common.wx.fetchTokenSignature(wx, transition.to.path, common.wx.jsApi.location, this, function() {
+                wx.ready(function () {
+                    wx.hideOptionMenu();
+                    // Get location information
+                    vm.getLocation();
+                });
+            });
+        }
+    },
+	methods: {
+		getLocation: function() {
+			var vm = this;
+			wx.getLocation({
+			    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+			    success: function (res) {
+			        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+			        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+			        var speed = res.speed; // 速度，以米/每秒计
+			        var accuracy = res.accuracy; // 位置精度
+			        vm.locationInfo = {
+			        	latitude: latitude,
+			        	longitude: longitude,
+			        	speed: speed,
+			        	accuracy: accuracy
+			        };
+			    }
+			});
+		},
+		toRedirectPage: function() {
+			window.location.href = common.wxRedirectUri('/user/find-password');
+		},
+		login: function() {
+			var vm = this;
+
+			if (vm.mobile) {
+				vm.mobile = vm.mobile.trim();
+			}
+			if (vm.password) {
+				vm.password = vm.password.trim();
+			} else {
+				common.msg('请输入登录密码');
+				return;
+			}
+			// charge whether this field is mobile number or id number.
+			if (validator.rule['m'].test(vm.mobile) || validator.rule['sfz'].test(vm.mobile)) {
+				if (validator.check('#m-form-login')) {
+					var data = {
+						loginName: vm.mobile,
+						password: vm.password,
+						wxCode: vm.wxCode
+					}
+					var params = mui.extend({}, data, vm.locationInfo);
+					var codeDivClass = document.getElementById('codeDiv').className;
+					if (codeDivClass == 'f-dn') {
+						login(params, function(response) {
+							window.isLogin = 'true';
+							var jumpUrl = response.fw;
+							console.log('common.Ajax jumpUrl: ' + jumpUrl);
+							common.msg('登录成功');
+							router.go({
+								path: jumpUrl
+							});
+						}, function(json) {
+							common.msg(json.returnMsg);
+						}, vm.fw);
+					} else {
+						if (!Checking.check()) {
+							return false;
+						}
+						login(params, function(response) {
+							window.isLogin = 'true';
+							var jumpUrl = response.fw;
+							console.log('common.Ajax jumpUrl: ' + jumpUrl);
+							common.msg('登录成功');
+							router.go({
+								path: jumpUrl
+							});
+						}, function(json) {
+						}, vm.fw);
+					}
+				}
+			} else {
+				common.msg('请输入正确的手机号或身份证号码');
+			}
+		},
+		toRegPage: function(register) {
+			window.location.href = common.wxRedirectUri('/user/register');
+		},
+		changeCanvas: function() {
+			Checking.init();
+		}
+	},
+	ready: function() {
+		var vm = this;
+		var fw = vm.$route.query.fw;
+		console.log('login forward page: ' + fw);
+		if (fw) {
+			this.fw = fw;
+		}
+        common.antiFraud.sendInfo();
+        vm.wxCode = vm.$route.query.code;
+        vm.mobile = vm.$route.query.mobile || '';
+	}
+});
+//登录
+function login(data, callback, failure, fw) {
+	console.log('common.Ajax fw: ' + fw);
+	common.Ajax({
+		url: 'api/wx/user/login',
+		data: data,
+		fw: fw,
+		success: function(json) {
+			typeof callback === 'function' && callback(json);
+		},
+		failure: function(json) {
+			typeof failure === 'function' && failure(json);
+		}
+	})
+}

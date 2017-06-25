@@ -1,0 +1,7 @@
+{
+    "repos": "http://layer.layui.com/mobile",
+    "description": "Layer For Mobile",
+    "name": "layer",
+    "main": "layer.js",
+    "version": "1.7"
+}

@@ -1,0 +1,9 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "success",
+    "data": {
+        "check_msg": "您的个人信用等级不够",
+        "check_flag": "Y",
+        "check_msg_no": "ER2029398"
+    }
+}

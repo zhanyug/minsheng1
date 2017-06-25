@@ -1,0 +1,11 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "success",
+    "data": {
+        "bankName": "招商银行",
+        "dayDeduct": 1000,
+        "dayPay": 1000,
+        "singleDeduct": 1000,
+        "singlePay": 1000
+    }
+}

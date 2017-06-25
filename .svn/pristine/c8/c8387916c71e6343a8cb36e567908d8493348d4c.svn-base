@@ -1,0 +1,20 @@
+// basic colors
+$color: #2775E1;
+$color-blue: #288EF4;
+$color-gold: #FECA16;
+$color-orange: #FF6600;
+$color-border: #FFF*.87;
+$color-gray: #999999;
+$color-green: #4EE2C2;
+$color-yellow: #F4A528;
+$color-red: #F6532A;
+$color-purple: #BD17DE;
+
+// gray
+$btn-gray: #f4f4f4;
+$color-gray-content: #929292;
+$color-gray-item-title: #4A4A4A;
+$color-gray-table-header: #F3F4F7;
+
+$color-bg-blue: #39B3DE;
+$color-bg-blue-deep: #2EA3CC;

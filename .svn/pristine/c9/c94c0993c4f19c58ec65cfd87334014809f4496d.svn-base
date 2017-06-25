@@ -1,0 +1,43 @@
+{
+	"returnCode": "000000",
+	"returnMsg": "success",
+	"data": {
+		"total_ps_prcp_amt": 200000.00,
+		"total_ps_norm_int": 200.00,
+		"total_ps_fee_amt": 200.00,
+		"total_ps_brokerage_amt": 200.00,
+		"total_ps_tax_amt": 200.00,
+		"total_ps_prime_amt": 200.00,
+		"list_lm_shd": {
+			"lm_shd": [
+				{
+					"ps_perd_no": 1,
+					"ps_due_dt": "2016-06-30",
+					"ps_amt":500,
+					"ps_prcp_amt": 20000.00,
+					"ps_norm_int": 200.00,
+					"ps_brokerage_amt": 2.00,
+					"ps_prime_amt": 2.00,
+					"list_fee_info": {
+						"fee_info": [
+							{
+								"fee_typ": "01",
+								"fee_amt": 10.00,
+								"tax_amt": 10.00
+							}
+						]
+					}
+				},{
+					"ps_perd_no": 2,
+					"ps_due_dt": "2016-06-30",
+					"ps_amt":500,
+					"ps_prcp_amt": 20000.00,
+					"ps_norm_int": 200.00,
+					"ps_brokerage_amt": 2.00,
+					"ps_prime_amt": 2.00,
+					"list_fee_info": null
+				}
+			]
+		}
+	}
+}

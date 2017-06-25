@@ -1,0 +1,31 @@
+<div class="bg animated" transition="fade" transition-mode="in-out">
+	<div class="content">
+		<!-- banner -->
+		<div class="load-banner f-cb" id="load-banner" v-if="isLogin"> 
+			<div class="load-logo"><img v-bind:src="'static/images/' + (userGender == '1'? 'user_load_man.jpg' : 'user_load_woman.jpg')"></div>
+            <div class="load-text"><a v-on:click="loginOut">退出</a></div>
+            <ul>
+            	<li class="load_a_logo1"><a v-link="{ path: '/loan/apply/query' }"></a></li>
+                <li class="load_a_logo2"><a v-link="{ path: '/user/loan/query' }"></a></li>
+                <li class="load_a_logo3"><a v-link="{ path: '/user/loanType'} "></a></li>
+                <li class="load_a_logo4"><a v-link="{ path: '/userRepayIndex'} "></a></li>
+            </ul>
+		</div>
+		<div class="banner about-banner f-cb" id="about-banner" v-else> 
+			<div class="banner-logo"><img src="static/images/logo_user.jpg"></div>
+            <div class="banner-text"><a v-on:click="toRedirectPage" data-path="/user/login">登录</a> / <a v-on:click="toRedirectPage" data-path="/user/register">注册</a></div>
+		</div>
+		<!-- //banner -->  
+        <div class="user_category" id="user_load" class="animated" transition="zoom" transition-mode="out-in">
+        	<ul>
+            	<li><a v-link="{ path: '/user/m-verified', query: { auth: 1} }"><img src="static/images/user_category_01.jpg"><span>实名认证</span></a></li>
+                <!-- <li><a v-link="{ path: '/user/client-info/set-multi-media', query: { auth: 1} }"><img src="static/images/user_category_06.jpg"><span>图像声纹采集</span></a></li> -->
+                <li><a v-link="{ path: '/loan/apply' }"><img src="static/images/user_category_08.jpg"><span>额度激活</span></a></li>
+				<li><a v-link="{ path: '/user/modify-password' }"><img src="static/images/user_category_02.jpg"><span>修改登录密码</span></a></li>
+                <li><a v-link="{ path: '/user/client-info/set-trade-password', query: { auth: 1} }"><img src="static/images/user_category_03.jpg"><span>修改交易密码</span></a></li>
+                <li><a v-link="{ path: '/user/client-info/set-trade-password', query: { auth: 2} }"><img src="static/images/user_category_04.jpg"><span>重置交易密码</span></a></li>
+            </ul>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>

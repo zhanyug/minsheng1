@@ -1,0 +1,151 @@
+fis.require('jello')(fis);
+
+fis.set('appid', 'wxccfe0d742a4e72eb'); // PROD
+// fis.set('appid', 'wxdf06113b971c73b3'); // 32
+// fis.set('appid', 'wx7f16833ce79fbf75'); // 17
+
+// Change the default plan commonjs in jello to amd plan.
+fis.unhook('commonjs');
+fis.hook('amd', {
+    globalAsyncAsSync: true,
+    forwardDeclaration: true,
+    paths: {
+        apps: 'static/libs/apps',
+        modules: 'static/modules',
+        util: 'static/libs/util'        
+    },
+    packages: [],
+    ignoreDependencies: []
+});
+
+// Mark the js files under path staitc/libs to modularized code.
+fis.match('/static/libs/**.js', {
+    isMod: true
+});
+
+fis.match('/static/libs/mui/mui.js', {
+    isMod: false
+});
+fis.match('/static/libs/jquery/jquery.min.js', {
+    isMod: false
+});
+
+fis.match('/static/libs/route/**.js', {
+    isMod: true,
+    wrap: false
+});
+
+fis.match('/static/modules/**.js', {
+    rExt: '.js',
+    isMod: true,
+    wrap: true
+});
+
+fis.match('/static/modules/index.tpl:css', {
+    optimizer: fis.plugin('clean-css'),
+    parser: fis.plugin('sass', {
+        include_paths: [
+            './static/scss',
+
+        ]
+    })
+});
+
+// Set the scss files path.
+fis.match('*.scss', {
+    rExt: '.css',
+    parser: fis.plugin('sass', {
+        include_paths: [
+            './static/scss',
+            './components/compass-mixins'
+        ]
+    })
+});
+
+// unbind less
+fis.match('*.less', {
+    parser: null
+});
+
+// 启用 fis-spriter-csssprites 插件
+fis.match('::package', {
+    spriter: fis.plugin('csssprites')
+})
+
+// 对 CSS 进行图片合并
+fis.match('*.css', {
+    // 给匹配到的文件分配属性 `useSprite`
+    useSprite: true
+});
+
+/*fis.match('server.conf', {
+  release: '/config/server.conf'
+});*/
+
+
+fis.match('::package', {
+    packager: fis.plugin('deps-pack', {
+        'pkg/wl.js': [
+            '/static/libs/apps/app.js',
+            '/static/libs/apps/app.js:deps',
+            '/static/libs/apps/app.js:asyncs'
+        ]
+    })
+})
+
+/*fis.media('test')
+    .match('*.conf', {
+        release: false
+    })
+    .match('test/**', {
+        release: false
+    })
+    .match('*.{css,scss}', {
+        domain: 'http://54.222.208.17/wechat-frontend',
+        optimizer: fis.plugin('clean-css')//,
+        //packTo: './static/aio.css'
+    })
+    fis.match('*.js', {
+        domain: 'http://54.222.208.17/wechat-frontend',
+        // optimizer: fis.plugin('uglify-js'),
+        useHash: true
+      })
+    // .match('page/**', {
+    //     release: 'WEB-INF/tpls/$0'
+    // })
+    .match('image', {
+        domain: 'http://54.222.208.17/wechat-frontend'
+    })
+    .match('*', {
+        deploy: fis.plugin('local-deliver', {
+            to: '/usr/local/tomcat/webapps/wechat-frontend/'
+        })
+    })*/
+/*
+    // Production media
+    fis.media('prod')
+      .match('*.conf', {
+        release: false
+      })
+      .match('test/**', {
+        release: false
+      })
+      fis.match('*.js', {
+        domain: 'https://ip:port/app',
+        optimizer: fis.plugin('uglify-js'),
+        useHash: true
+      })
+      fis.match('*.{css,scss}', {
+        domain: 'https://ip:port/app',
+        optimizer: fis.plugin('clean-css'),
+        useHash: true
+      })shi
+      .match('image', {
+        domain: 'https://ip:port/app',
+        useHash: false
+      })
+      .match('*', {
+        deploy: fis.plugin('local-deliver', {
+          to: '../output/prod'
+        })
+      })*/

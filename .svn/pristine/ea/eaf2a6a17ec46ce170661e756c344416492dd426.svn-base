@@ -1,0 +1,14 @@
+{
+	"returnCode": "000000",
+	"returnMsg": "success",
+	"data": {
+		"seven_day_amt": 0.00,
+		"one_month_amt": 0.00,
+		"all_unpaid_amt": 0.00,
+		"all_loan_amt": 10000.00,
+		"all_unreplay_amt": 0.00,
+		"all_replay_num": 4,
+		"replay_progress_scale": 20,
+		"all_loan_os_prcp": 10000
+	}
+}

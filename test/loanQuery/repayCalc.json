@@ -1,0 +1,17 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "success",
+    "data": {
+        "pp_min_val": 123,
+        "pp_max_val": 456,
+        "total_repay_amt": 439.58,
+        "total_ps_prcp_amt": 239.80,
+        "total_ps_norm_int": 23.95,
+        "total_ps_od_int_amt": 0.0,
+        "total_ps_comm_od_int": 0.0,
+        "total_ps_brokerage_amt": 0,
+        "total_amort_prime_amt": 0,
+        "total_ps_fee_amt": 0,
+        "total_ps_tax_amt": 0
+    }
+}

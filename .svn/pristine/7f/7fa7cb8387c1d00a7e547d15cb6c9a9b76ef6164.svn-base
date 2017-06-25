@@ -1,0 +1,17 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "success",
+    "data": {
+        "userName": "苏蔚",
+        "idNo": "142718198803330332",
+        "mobile": "18801301267",
+        "email": "celsword@gmail.com",
+        "idPeriod": "10",
+        "workCom": "中原银行",
+        "comTel": "010-12345678",
+        "province": "110000",
+        "city": "110100",
+        "area": "110101",
+        "address": "关东店北街21号楼"
+    }
+}

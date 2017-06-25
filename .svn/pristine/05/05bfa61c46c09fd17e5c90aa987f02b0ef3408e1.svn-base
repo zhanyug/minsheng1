@@ -1,0 +1,14 @@
+{
+  "name": "wechat-ui",
+  "version": "1.0.0",
+  "description": "ZhongYuan Bank Wechat Web App.",
+  "keywords": [
+    "ZhongYuan Bank"
+  ],
+  "dependencies": [
+  	"vue@^1.0.28",
+  	"vue-resource",
+    "vue-router",
+    "layer"
+  ]
+}

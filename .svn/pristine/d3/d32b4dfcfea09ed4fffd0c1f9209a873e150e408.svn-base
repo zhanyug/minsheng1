@@ -1,0 +1,10 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "success",
+    "data": {
+        "appl_cde": "032016053015000000002",
+        "sign_msg": "签约成功",
+        "sign_flag": "Y",
+        "cont_no": "HT032016053015000000002"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "登录成功",
+    "url": "/user/index",
+    "data": {
+        "fw": ""
+    }
+}

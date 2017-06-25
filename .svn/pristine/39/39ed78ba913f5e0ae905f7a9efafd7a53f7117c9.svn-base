@@ -1,0 +1,16 @@
+#extends("/page/include/base.vm") 
+	#require("static/scss/apps/app.scss")
+
+	#script()
+		require('apps/app')
+	#end
+	
+	#block("content")
+		<div id="loading" class="g-load animated m-component-loading">
+			<div id="root">
+				<router-view></router-view>
+				<c-loading-toast v-show="isLoadingToastShow" v-bind:tips="'加载中'"></c-loading-toast>
+			</div>
+		</div>
+	#end
+#end

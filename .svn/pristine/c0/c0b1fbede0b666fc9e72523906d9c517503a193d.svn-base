@@ -1,0 +1,14 @@
+{
+	"returnCode": "000000",
+	"returnMsg": "success",
+	"url": null,
+	"data": {
+		"settl_typ": "03",
+		"payoffLoanList": [
+			"HT90201605041700009079745003",
+			"HT90201605041700009079745002",
+			"HT90201605041700009079745001"
+		],
+		"isOver": "N"
+	}
+}

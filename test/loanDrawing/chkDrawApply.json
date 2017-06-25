@@ -1,0 +1,24 @@
+{
+	"returnCode": "000000",
+	"returnMsg": "操作成功",
+	"url": null,
+	"data": {
+		"allow_dn": "Y",
+		"min_dn_amt": 1000.00,
+		"max_dn_amt": 200000.00,
+		"check_flag": "",
+		"check_msg": "Y",
+		"due_day": "2017-12-10",
+		"list_p_mtd": {
+			"p_mtd": [
+				{
+					"apply_tnr_typ": "12",
+					"min_amt": 100,
+					"max_amt": 1000,
+					"mtd_cde": "01",
+					"day_int_rat": "0.00045"
+				}
+			]
+		}
+	}
+}

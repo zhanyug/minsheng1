@@ -1,0 +1,7 @@
+{
+    "repos": "https://github.com/lugolabs/circles",
+    "description": "Lightweight JavaScript library that generates circular graphs in SVG. Now with animation.",
+    "name": "circles",
+    "main": "circles.js",
+    "version": "0.0.6"
+}

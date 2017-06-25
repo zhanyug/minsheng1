@@ -1,0 +1,18 @@
+{
+  "name": "wechat-ui",
+  "version": "1.0.0",
+  "description": "ZhongYuan Bank Wechat Web App.",
+  "keywords": [
+    "ZhongYuan Bank"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "MUI": "^2.9.0",
+    "fis3-postpackager-loader": "^2.1.4",
+    "layer-mobile": "^1.7",
+    "normalize.css": "^4.0.0",
+    "vue": "^1.0.18",
+    "vue-resource": "^0.7.0",
+    "vue-router": "^0.7.13"
+  }
+}

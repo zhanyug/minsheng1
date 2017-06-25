@@ -1,0 +1,9 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "操作成功",
+    "url": null,
+    "data": {
+        "limitAmtSecond": "20000",
+        "limitAmtFirst": "10000"
+    }
+}

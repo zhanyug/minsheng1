@@ -1,0 +1,13 @@
+{
+    "repos": "https://github.com/vuejs/vue-router.git",
+    "description": "vue-router is the official router for Vue.js. It deeply integrates with Vue.js core to make building Single Page Applications",
+    "name": "vue-router",
+    "main": "vue-router.min.js",
+    "version": "0.7.13",
+    "tag": "master",
+    "reposType": "npm",
+    "dependencies": {},
+    "paths": {
+        "dist": "."
+    }
+}

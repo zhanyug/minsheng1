@@ -1,0 +1,8 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "success",
+    "data": {
+        "isLogin": true,
+        "phone": "131****1111"
+    }
+}

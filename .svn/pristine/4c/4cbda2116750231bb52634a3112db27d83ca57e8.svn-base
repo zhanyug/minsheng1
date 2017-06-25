@@ -1,0 +1,50 @@
+{
+	"returnCode": "000000",
+	"returnMsg": "success",
+	"data": {
+		"cont_no": "HT90201605051100009079860",
+		"loan_no": "HT90201605051100009079860001",
+		"ps_perd_no": 1,
+		"ps_due_dt": "2015-06-01",
+		"pay_dt": "2016-06-01",
+		"ps_instm_amt": 1000.00,
+		"ps_prcp_amt": 1000.00,
+		"ps_norm_int": 1000.00,
+		"ps_od_int_amt": 1000.00,
+		"ps_comm_od_int": 10.00,
+		"ps_brokerage_amt": 10.00,
+		"setl_instm_amt": 10.00,
+		"setl_prcp": 10.00,
+		"setl_norm_int": 10.00,
+		"setl_od_int_amt": 10.00,
+		"setl_comm_od_int": 10.00,
+		"setl_brokerage_amt": 10.00,
+		"amort_prime_amt": 10.00,
+		"ps_sts": "1",
+		"list_fee_info": {
+			"fee_info": [
+				{
+					"fee_typ": "01",
+					"ps_fee_amt": 10.00,
+					"setl_fee_amt": 10.00,
+					"ps_tax_amt": 10.00,
+					"setl_tax_amt": 10.00
+				},
+				{
+					"fee_typ": "02",
+					"ps_fee_amt": 10.00,
+					"setl_fee_amt": 10.00,
+					"ps_tax_amt": 10.00,
+					"setl_tax_amt": 10.00
+				},
+				{
+					"fee_typ": "01",
+					"ps_fee_amt": 10.00,
+					"setl_fee_amt": 10.00,
+					"ps_tax_amt": 10.00,
+					"setl_tax_amt": 10.00
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,75 @@
+<div class="bg">
+	<c-header title="注册信息"></c-header>
+    <div class="mui-content content">
+        <!-- modal -->
+        <div class="RegisterOne_img">
+       		<ul>
+            	<li><span class="glyphicon glyphicon-edit"></span><p>注册信息</p></li>
+                <li><span class="glyphicon glyphicon-user"></span><p>实名认证</p></li>
+                <li><span class="glyphicon glyphicon-usd"></span><p>交易密码</p></li>
+            </ul>
+            <div class="clearfix"> </div>
+       		<cite>
+            	<span class="line_one"></span>
+                <span class="line_two"></span>
+            </cite>
+        </div>
+			
+		<div class="ForgotPassword_login-form">
+			<form id="m-form-login">
+				<div class="ForgotPassword_styled-input" id="phone-row">
+                	<span class="mui-icon mui-icon-person"></span>
+          			<input type="text" v-model="mobile" placeholder="请输入手机号" data-type="m" />
+				</div>
+                <div class="ForgotPassword_styled-input">
+                	<span class="mui-icon mui-icon-email"></span>
+          			<input type="text" v-model="code" placeholder="请输入验证码" data-type="*" class="width_60" />
+                    <span class="disBlock" v-bind:class="sendValidCodeBtnClass" v-on:click="sendValidCode"><a v-text="sendValidCodeBtnText">点击获取</a></span>
+				</div>
+				<div class="ForgotPassword_styled-input">
+                	<span class="mui-icon mui-icon-locked"></span>
+               		<input id="u-regist-password" type="password" v-model="password" placeholder="请输入8-24位数字+字母的登录密码" data-type="up-n|up-w|up-l"/>
+				</div> 
+                <div class="ForgotPassword_styled-input">
+                	<span class="mui-icon mui-icon-locked"></span>
+               		<input type="password" v-model="surepassword" placeholder="请确认登录密码" data-type="tobe(u-regist-password)" /> 
+				</div> 
+		
+				<input type="button" value="下一步"  v-on:click="register">	
+                
+                <div class="RegisterOne_wthree-text"> 
+					<ul> 
+						<li>
+							<input id="u-regist-agreement" type="checkbox" checked="checked" readonly="readonly">
+							<label for="brand"><span></span></label>
+                            <a href="javascript:void(0);" v-on:click="show"><span style="float:left">我已阅读并同意</span><span style="width:16em;display:block;float:left">《个人信息查询和使用授权书》</span></a>
+						</li>
+					</ul>
+					<div class="clear"> </div>
+				</div> 
+				
+			</form>
+            <div class="clearfix"> </div>
+		</div> 
+    </div> 
+	<!-- //modal -->
+	<div id="RegisterOne_read" class="RegisterOne_read" transition="zoom" transition-mode="out-in" v-if="view.isShowAgreement">
+		<div style="text-align:center;"><b>个人信息查询和使用授权书</b></div>
+	    <div><b>重要提示：</b></div>
+	    <p>为了保障您的合法权益，您应当阅读并遵守本授权书，请您务必审慎阅读、充分理解授权书条款内容，特别是免除或者减轻河南<u><b>中原消费金融有限责任公司</b></u>（以下统称“被授权人”）责任，或限制您权利的条款。</p>
+	    <p>除非您已阅读并接受本授权书所有条款，否则您无权使用被授权人提供的服务。您的使用、登录被授权人微信公众号/服务号/APP等行为即视为您已阅读并同意接受本授权书条款的约束。</p>
+	    <p>本人充分理解并同意，被授权人提供的服务是指被授权人与其合作的金融机构为本人提供的现金贷款服务，现本人主动申请开通此项服务。被授权人为客观、准确地评估本人的信用等级和授信额度，为本人提供优质服务，就使用本人的相关必要信息，本人同意并授权如下：</p>
+	    <p>一、被授权人可通过合法的征信机构和第三方数据合作机构查询本人的资信资料，被授权人可使用、分析获取的本人资信资料、在被授权人的相关历史信息、支付数据信息及本人注册和使用被授权人微信公众号/服务号/APP服务时产生的相关信息。</p>
+	    <p>二、被授权人可使用被授权人微信公众号/服务号/APP服务传输的本人数据信息，包括但不限于本人的姓名、身份证号、联系方式、银行卡信息及其他相关信息。</p>
+	    <p>三、在本人贷款逾期后，被授权人可将本人的姓名、联系方式、联系地址、贷款情况等信息提供给合作催收机构催收贷款使用。</p>
+	    <p>四、为便于向本人提供更加优质的服务和产品，被授权人可以将上述本人信息分享给贷款业务开展过程中必要的合作伙伴。</p>
+	    <p>五、本人上述信息仅限用于被授权人贷款分析和产品营销。本人声明，被授权人查询、使用和分析本人信息行为并不违反被授权人与本人之间的相关保密义务，被授权人不承担任何违约责任或赔偿责任。</p>
+	    <div>授权人声明：</div>
+	    <p>本授权书是本人真实意愿，效力具有独立性，不因授信合同的任何条款无效而失效。</p>
+	    <p>本授权书期限自本人作出本授权之日起至本人与被授权人之间所有业务终结之日止。</p>
+	    <p>若本人与被授权人发生任何纠纷或争议，首先应友好协商解决；协商不成的，本人同意将纠纷或争议提交被授权人所在地人民法院管辖。本授权书的成立、生效、履行、解释及纠纷解决，适用中华人民共和国大陆地区法律（不包括冲突法）。</p>
+	    <p>本人已知悉本授权书所有内容的意义以及由此产生的法律效力，自愿作出上述授权，本授权书是本人真实意思表示，本人同意承担相应法律后果。</p>
+	    <p>特此授权！</p>
+	    <a href="javascript:void(0);" v-on:click="hide">同意</a>
+	</div>
+</div>

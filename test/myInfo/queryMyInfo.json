@@ -1,0 +1,10 @@
+{
+	"returnCode": "000000",
+	"returnMsg": "success",
+	"data": {
+		"userName": "张三",
+		"idNo": "211203********2030",
+		"mobile":"13081756806",
+		"flag":"1"
+	}
+}

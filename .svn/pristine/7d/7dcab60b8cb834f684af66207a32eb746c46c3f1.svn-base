@@ -1,0 +1,118 @@
+# page rewrite
+
+// Ma
+rewrite ^\/login$ /page/apps/login
+rewrite ^\/register$ /page/apps/register
+rewrite ^\/m-verified$ /page/apps/m-verified
+rewrite ^\/myInfo$ /page/apps/myInfo
+rewrite ^\/loanList$ /page/loan/loanList
+rewrite ^\/msg-verified$ /page/apps/msg-verified
+rewrite ^\/verified-code$ /page/apps/verified-code
+rewrite ^\/loanType$ /page/drawing/loanType
+rewrite ^\/loanSinfo$ /page/drawing/loanSinfo
+rewrite ^\/drawing$ /page/drawing/drawing
+
+rewrite ^\/jeesite/api/wx/lg/media/uploadIDCard /test/common/m_verified.json
+rewrite ^\/jeesite/api/wx/lg/media/uploadBankCard /test/common/m_verified.json
+rewrite ^\/jeesite/api/wx/lg/user/checkVerifyCode /test/common/m_verified.json
+rewrite ^\/jeesite/api/user/sendVerifyCode /test/common/m_verified.json
+rewrite ^\/jeesite/api/wx/lg/user/queryRealNameAuth /test/common/queryRealNameAuth.json
+rewrite ^\/jeesite/api/wx/auth/credit/queryDrawingDetailList /test/loanDrawing/queryDrawingDetailList.json
+rewrite ^\/jeesite/api/wx/lg/media/limit /test/common/limit.json
+
+rewrite ^\/jeesite/api/wx/lg/credit/queryLoanList /test/loanQuery/list.json
+rewrite ^\/jeesite/api/wx/lg/credit/queryLoanList2 /test/loanQuery/list2.json
+rewrite ^\/jeesite/api/wx/auth/credit/queryLoanDetail /test/loanDrawing/queryLoanDetail.json
+rewrite ^\/jeesite/api/credit/queryDrawingDetailList /test/loanDrawing/queryDrawingDetailList.json
+rewrite ^\/jeesite/api/wx/auth/credit/chkDrawApply /test/loanDrawing/chkDrawApply.json
+rewrite ^\/jeesite/api/wx/auth/credit/queryRepayType /test/loanDrawing/queryRepayType.json
+rewrite ^\/jeesite/api/wx/lg/user/checkTxPwd /test/common/m_verified.json
+rewrite ^\/jeesite/api/wx/auth/credit/drawing /test/common/m_verified.json
+rewrite ^\/jeesite/api/wx/lg/user/queryBankCardInfo /test/myInfo/queryBankCard.json
+rewrite ^\/jeesite/api/wx/lg/user/queryUserAllInfo /test/myInfo/queryMyInfo.json
+rewrite ^\/jeesite/api/wx/auth/credit/queryLoanList /test/loanDrawing/loanType.json
+rewrite ^\/jeesite/api/wx/auth/credit/repayPlanTrial /test/loanDrawing/repayPlanTrial.json
+rewrite ^\/jeesite/api/wx/auth/credit/queryBaseInfo /test/loanDrawing/queryBaseInfo.json
+rewrite ^\/jeesite/api/wx/auth/user/updateBaseInfo /test/loanDrawing/updateBaseInfo.json
+
+rewrite ^\/jeesite/api/wx/auth/credit/queryIOUList /test/loanRepay/queryIOUList.json
+
+rewrite ^\/jeesite/api/wx/auth/credit/queryAllRepayPlanBody /test/loanRepay/queryAllRepayPlanBody.json
+rewrite ^\/jeesite/api/wx/auth/credit/queryAllRepayPlanList /test/loanRepay/queryAllRepayPlanList.json
+rewrite ^\/jeesite/api/wx/auth/credit/queryAllRepayPlanDetail /test/loanRepay/queryAllRepayPlanDetail.json
+rewrite ^\/jeesite/api/wx/auth/credit/preRepayChk /test/loanRepay/preRepayChk.json
+rewrite ^\/jeesite/api/wx/auth/credit/repaymentApply /test/loanRepay/repaymentApply.json
+rewrite ^\/jeesite/api/wx/auth/credit/initiRepayTrialBody /test/loanRepay/initiRepayTrialBody.json
+
+rewrite ^\/jeesite/api/user/sendVerifyCode /test/loanRepay/login.json
+
+// Will.Su
+rewrite ^\/app$ /page/apps/app
+
+rewrite ^\/wx\/.* /page/apps/app
+
+// Common
+rewrite ^\/jeesite/api/wx/tokenSignature /test/common/tokenSignature.json
+
+rewrite ^\/find-password$ /page/apps/find-password
+rewrite ^\/modify-password$ /page/apps/modify-password
+
+rewrite ^\/jeesite/api/wx/auth/credit/queryApplyListState /test/apply/query.json
+# rewrite ^\/jeesite/api/wx/lg/credit/queryApprvTrail /test/apply/queryApprvTrail.json
+rewrite ^\/jeesite/api/wx/flow/credit/chkLoadRequest /test/apply/applyCheck.json
+rewrite ^\/jeesite/api/wx/lg/credit/applyCredit /test/apply/applyCredit.json
+rewrite ^\/jeesite/api/wx/lg/credit/queryApprvTrail /test/apply/applyProgress.json
+# rewrite ^\/jeesite/api/wx/lg/credit/queryLoanList /test/loanQuery/list.json
+rewrite ^\/jeesite/api/wx/lg/credit/queryContract /test/loanQuery/queryContract.json
+rewrite ^\/jeesite/api/wx/lg/credit/signContract /test/loanQuery/signContract.json
+rewrite ^\/jeesite/api/wx/lg/credit/queryIOUDetails /test/loanQuery/repayDetails.json
+rewrite ^\/jeesite/api/wx/auth/credit/initiRepayTrialBody /test/loanQuery/repayCalc.json
+rewrite ^\/jeesite/api/wx/lg/credit/repaymentApply /test/loanQuery/payResult.json
+rewrite ^\/jeesite/api/wx/auth/credit/queryApprvTrail /test/loanApply/applyProgress.json
+
+rewrite ^\/jeesite/api/wx/lg/user/setTxPwdQuery /test/setTradePasswordClientInfo.json
+rewrite ^\/jeesite/api/wx/lg/user/queryUserAllInfo /test/userInfo.json
+
+rewrite ^\/jeesite/api/wx/user/login /test/common/login.json
+rewrite ^\/jeesite/api/wx/lg/user/getUserSex /test/common/getUserSex.json
+rewrite ^\/jeesite/api/wx/user/checkLogin /test/common/checkLogin.json
+rewrite ^\/jeesite/api/wx/lg/user/stepQuery /test/common/stepQuery.json
+rewrite ^\/api/wx/nolg/media/uploadImgTwoCode /test/common/login.json
+rewrite ^\/jeesite/api/wx/lg/user/queryLimitList /test/creditLimit.json
+rewrite ^\/jeesite/api/wx/auth/credit/queryIOUDetails /test/credit/queryIOUDetails.json
+rewrite ^\/jeesite/api/wx/lg/user/getLimitValue /test/loanDrawing/getLimitValue.json
+rewrite ^\/jeesite/api/wx/lg/user/getUserInfo /test/loanApply/getUserInfo.json
+rewrite ^\/jeesite/api/wx/user/setTxPwdQueryDirect /test/clientInfo/setTxPwdQueryDirect.json
+# rewrite ^\/jeesite/api/wx/auth/credit/applyCredit http://127.0.0.1/wechat-mock/timeout
+rewrite ^\/jeesite/api/wx/lg/user/loginOut /test/logout.json
+
+// Addition for demo
+rewrite ^\/jeesite/api/wx/user/getEntryptSessionId /test/common/getEntryptSessionId.json
+rewrite ^\/jeesite/api/wx/user/logedIn /test/common/logedIn.json
+# 发送注册验证码
+rewrite ^\/jeesite/api/wx/user/sendVerifyCodeReg /test/common/sendVerifyCodeReg.json
+# 注册第一步
+rewrite ^\/jeesite/api/wx/user/register /test/register/register.json
+# 注册第二步
+rewrite ^\/jeesite/api/wx/media/uploadIDCard /test/register/m-verified.json
+# 注册第三步
+rewrite ^\/jeesite/api/wx/media/uploadBankCard /test/register/msg-verified.json
+# 注册第四步
+rewrite ^\/jeesite/api/wx/user/checkVerifyCode /test/register/checkVerifyCode.json
+# 注册第五步
+rewrite ^\/jeesite/api/wx/user/sendVerifyCode /test/common/sendVerifyCodeReg.json
+rewrite ^\/jeesite/api/wx/user/setTxPwd /test/register/setTxPwd.json
+# 额度激活
+rewrite ^\/jeesite/api/wx/auth/credit/applyCredit /test/loanApply/applyLimit.json
+# 贷款查询 -> 立即签约
+rewrite ^\/jeesite/api/wx/auth/credit/queryContract /test/loanQuery/queryContract.json
+rewrite ^\/jeesite/api/wx/auth/credit/signContract /test/loanQuery/signContract.json
+# 修改密码
+rewrite ^/jeesite/api/wx/lg/user/updatePassword /test/common/updatePassword.json
+rewrite ^/jeesite/api/wx/lg/user/updatePassword /test/common/updatePassword.json
+rewrite ^/jeesite/api/wx/lg/user/updatePassword /test/common/updatePassword.json
+rewrite ^/jeesite/api/wx/user/setTxPwd /test/common/updatePassword.json
+rewrite ^/jeesite/api/wx/auth/user/updateTxPwd /test/common/updatePassword.json
+rewrite ^/jeesite/api/wx/auth/user/resetTxPwd /test/common/updatePassword.json
+# 我要还款 - 全额还款 - 获取支付限额
+rewrite ^\/jeesite/api/wx/user/getSysValueBySysCode /test/loanQuery/getSysValueBySysCode.json

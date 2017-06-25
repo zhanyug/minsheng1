@@ -1,0 +1,24 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "success",
+    "data": {
+        "day_int_rat": 0.0032560098541,
+        "fk_card_no": "3325",
+        "due_day_opt": "1",
+        "avail_amt": 990.00,
+        "hk_card_bank": "交通银行",
+        "sign_dt": "2016-01-01",
+        "loan_freq": "1M",
+        "hk_card_no": "3325",
+        "cust_name": "William",
+        "loan_amt": 20000.00,
+        "appl_cde": "032016050511000012345",
+        "sign_end_dt": "2018-01-01",
+        "fk_card_bank": "交通银行",
+        "used_amt": 10010.00,
+        "chargeoff_ind": "03",
+        "id_no": "13060************1",
+        "fk_card_bankname":"交通银行",
+        "hk_card_bankname":"交通银行"
+    }
+}

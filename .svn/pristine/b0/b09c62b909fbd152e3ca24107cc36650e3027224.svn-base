@@ -1,0 +1,16 @@
+.divNone {
+	display: none;
+}
+
+.divOn {
+	display: block;
+}
+.register-getCode-btn {
+	width: 40%;
+}
+.input-width{
+	width: 70%;
+}
+.input-width-50{
+    width: 50%;
+}

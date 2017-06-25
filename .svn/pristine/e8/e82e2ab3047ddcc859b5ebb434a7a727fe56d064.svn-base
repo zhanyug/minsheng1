@@ -1,0 +1,13 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "操作成功",
+    "url": null,
+    "data": {
+        "idNo": "142727198803******",
+        "isNull": 1,
+        "userId": "0b663f8251c642169953f408cf92b08e",
+        "userName": "1000626639zyyh",
+        "resMobile": "138****1009",
+        "bankCard": "621035*************"
+    }
+}

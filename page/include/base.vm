@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+#html("/static/js/mod-amd.js","lang", "zh-CN")
+    #head()
+        <!-- Meta info configuration -->
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!-- Close telephone number auto-recognition in iOS platform -->
+        <meta name="format-detection" content="telephone=no">
+        <base href="${ctxPath}">
+        <!-- SEOS -->
+        <meta name="title" content="中原消费金融"/>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <!-- cache control: no cache -->
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <title>$title</title>
+        #require("/static/scss/mui/css/mui.css")
+        #require("/static/scss/base.scss")
+        #require("/static/css/bootstrap.css")
+        #require("/static/css/style.css")
+        #script('/static/libs/mui/mui.js')#end
+        #script('/static/libs/jquery/jquery.min.js')#end
+        #script()
+			window.isLogin = false;
+            window.isUserGenderFetched = false;
+            window.userGender = '1';
+		#end
+    #end
+    #body()
+        #block("header")
+        #end
+        <div id="g-bd" class="g-bd">
+            #block("content")
+            #end
+        </div>
+        #block("footer")
+        #end
+    #end
+#end

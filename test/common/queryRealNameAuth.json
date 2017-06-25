@@ -1,0 +1,15 @@
+{
+	"returnCode": "000000",
+	"returnMsg": "success",
+	"url": null,
+	"data": {
+		"idNo": "411624********0038",
+		"idPeriod": 1451624400000,
+		"authFlag": "1",
+		"userId": "7e2e8335f8a14155a84576662d728884",
+		"userName": "001",
+		"resMobile": "130****0001",
+		"bankCard": "6227000661280******"
+	},
+	"count": 0
+}

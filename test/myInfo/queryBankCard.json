@@ -1,0 +1,18 @@
+{
+	"returnCode": "000000",
+	"returnMsg": "success",
+	"data": [
+			{
+				"userName": "张三",
+				"bankCard": "62270006********591",
+				"resMobile": "13081756806",
+				"defaultFlag": "0"
+			}, {
+				"userName": "张三",
+				"bankCard": "62270006********626",
+				"resMobile": "13081756806",
+				"defaultFlag": "1"
+			}
+		]
+	
+}

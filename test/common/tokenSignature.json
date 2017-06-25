@@ -1,0 +1,11 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "操作成功",
+    "url": null,
+    "data": {
+        "timestamp": "1481680918947",
+        "appId": "wxdf06113b971c73b3",
+        "nonce": "xExTWTHp4F",
+        "signature": "3d7459ac1813218cbe1740ac9f6606faea7c4a3a"
+    }
+}

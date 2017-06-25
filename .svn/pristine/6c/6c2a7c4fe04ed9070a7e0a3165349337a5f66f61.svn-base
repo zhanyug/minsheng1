@@ -1,0 +1,33 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "success",
+    "data": [{
+        "appl_type": "XFDK",
+        "typ_grp": "02",
+        "out_sts": "10",
+        "operate_time": "2016-05-15 18:08:10",
+        "app_conclusion": "10",
+        "out_sts_desc": "申请提交",
+        "app_out_advice": "同意"
+    }, {
+        "appl_type": "XFDK",
+        "typ_grp": "02",
+        "out_sts": "10",
+        "operate_time": "2016-05-20 18:08:10",
+        "app_conclusion": "10",
+        "out_sts_desc": "审批通过",
+        "app_out_advice": "同意"
+    }, {
+        "appl_type": "XFDK",
+        "typ_grp": "02",
+        "out_sts_desc": "初审通过"
+    }, {
+        "appl_type": "XFDK",
+        "typ_grp": "02",
+        "out_sts_desc": "合同签订"
+    }, {
+        "appl_type": "XFDK",
+        "typ_grp": "02",
+        "out_sts_desc": "结束"
+    }]
+}

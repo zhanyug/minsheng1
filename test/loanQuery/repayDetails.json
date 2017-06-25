@@ -1,0 +1,63 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "success",
+    "url": "",
+    "data": {
+        "cont_no": "HT032016053015000000002",
+        "loan_no": "HT032016053015000000002001",
+        "orig_prcp": 1000,
+        "loan_tnr": "12",
+        "loan_tnr_typ": "12",
+        "paym_freq_freq": "1M",
+        "mtd_cde": "02",
+        "due_day_opt": "1",
+        "due_day": "22",
+        "loan_sts": "ACTV",
+        "wait_repay_amt": 1056.08,
+        "loan_os_prcp": 30000,
+        "loan_actv_dt": "2016-01-01",
+        "last_due_dt": "2016-03-01",
+        "fst_paym_dt": "2016-10-01",
+        "purpose": "STO",
+        "fk_card_no": "0000",
+        "fk_card_bank": "301",
+        "hk_card_no": "0000",
+        "hk_card_bank": "301",
+        "lastest_due_dt": "2016-01-01",
+        "lastest_repay_amt": 2000,
+        "fk_card_bankname": "交通银行",
+        "hk_card_bankname": "交通银行",
+        "cust_name": "张忠荣",
+        "id_no": "210905********0546",
+        "list_lm_shd": {
+            "lm_shd": [{
+                "ps_perd_no": 0,
+                "ps_due_dt": "2016-03-22",
+                "pay_dt": "",
+                "ps_instm_amt": 0.0,
+                "ps_prcp_amt": 0.0,
+                "ps_norm_int": 0.0,
+                "ps_od_int_amt": 0.0,
+                "ps_comm_od_int": 0.0,
+                "ps_brokerage_amt": 0.00,
+                "setl_instm_amt": 0.0,
+                "setl_prcp": 0.0,
+                "setl_norm_int": 0.0,
+                "setl_od_int_amt": 0.0,
+                "setl_comm_od_int": 0.0,
+                "setl_brokerage_amt": 0.00,
+                "amort_prime_amt": 0.00,
+                "ps_sts": "1",
+                "list_fee_info": {
+                    "fee_info": [{
+                        "fee_typ": "01",
+                        "ps_fee_amt": 10.00,
+                        "setl_fee_amt": 10.00,
+                        "ps_tax_amt": 10.00,
+                        "setl_tax_amt": 10.00
+                    }]
+                }
+            }]
+        }
+    }
+}

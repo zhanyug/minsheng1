@@ -1,0 +1,30 @@
+{
+	"returnCode": "000000",
+	"returnMsg": "操作成功",
+	"url": null,
+	"data": [
+		{
+			"typCoe": "X201600298",
+			"tnrOpt": "3",
+			"promCoe": "",
+			"maxAmt": 100000,
+			"minAmt": 10,
+			"mtdTyp": "01"
+		}, {
+			"typCoe": "X201600298",
+			"tnrOpt": "12",
+			"promCoe": "",
+			"maxAmt": 10000,
+			"minAmt": 50,
+			"mtdTyp": "01"
+		}, {
+			"typCoe": "X201600298",
+			"tnrOpt": "12",
+			"promCoe": "",
+			"maxAmt": 100000,
+			"minAmt": 1000,
+			"mtdTyp": "02"
+		}
+	],
+	"count": 3
+}

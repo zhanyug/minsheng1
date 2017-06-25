@@ -1,0 +1,8 @@
+{
+    "returnCode": "000000",
+    "returnMsg": "success",
+    "url": "/user/client-info/set-multi-media",
+    "data": {
+        "fw": ""
+    }
+}
